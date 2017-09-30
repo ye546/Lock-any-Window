@@ -10,12 +10,14 @@ void idk() {
 	if(window <= 0) {
 		printf("window '%s' does not exist, try again\n\n", nameOfWindow.c_str());
 		idk();
+	}else{
+	    printf("Window found.\n\nPress y/Y to disable it, and n/N to enable it. To quit the program press b/B\n\n");
 	}
 	while (std::cin>>xd) {
 		if (xd == 'y' || xd == 'Y') {
 			if (window) {
 				EnableWindow(window, FALSE);
-				printf("Window is now disabled\n");
+				printf("Window '%s' is now disabled\n", nameOfWindow.c_str());
 			}
 			else {
 				printf("action failed\n");
@@ -24,7 +26,7 @@ void idk() {
 		}
 		else if (xd == 'n' || xd == 'N') {
 			EnableWindow(window, TRUE);
-			printf("window is enabled again\n");
+			printf("window '%s' is enabled again\n", nameOfWindow.c_str());
 		}
 		else if (xd == 'b' || xd == 'B')
 			break;
