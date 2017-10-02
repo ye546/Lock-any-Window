@@ -77,7 +77,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 	case WM_CREATE:
 		lock = CreateWindowExA(WS_EX_WINDOWEDGE, "Button", "Lock", WS_CHILD | WS_VISIBLE, 10, 10, 50, 30, hWnd, NULL, hInst, (LPVOID)lParam);
 		unlock = CreateWindowExA(WS_EX_WINDOWEDGE, "Button", "Unlock", WS_CHILD | WS_VISIBLE, 110, 10, 50, 30, hWnd, NULL, hInst, (LPVOID)lParam);
-		name1 = CreateWindowExA(WS_EX_WINDOWEDGE, "Edit", "name...", WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 60, 150, 20, hWnd, NULL, hInst, (LPVOID)lParam);
+		name1 = CreateWindowExA(WS_EX_CLIENTEDGE, "Edit", "name...", WS_CHILD | WS_VISIBLE | WS_BORDER, 10, 60, 150, 20, hWnd, NULL, hInst, (LPVOID)lParam);
 		break;
 	case WM_COMMAND:
 		if (message == WM_COMMAND && (HWND)lParam == lock) {
@@ -102,7 +102,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){
 			}
 			findWindow = FindWindowA(NULL, windowName);
 			if (!findWindow) {
-				MessageBoxA(NULL, "´The specified window does not exist", NULL, MB_OK | MB_ICONERROR);
+				MessageBoxA(NULL, "Â´The specified window does not exist", NULL, MB_OK | MB_ICONERROR);
 			}
 			else if(findWindow){
 				EnableWindow(findWindow, TRUE);
